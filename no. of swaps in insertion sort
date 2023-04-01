@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+int insertion_sort(int arr[],int n);
+int main()
+{
+    int arr[20];
+    int n,i,count;
+    cout<<"enter the value of n"<<endl;
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    count=insertion_sort(arr,n);
+    for(i=0;i<n;i++)
+    {
+        cout<<arr[i]<<endl;
+    }
+    cout<<"the number of shifting performed"<<endl;
+    cout<<count;
+}
+int insertion_sort(int arr[],int n)
+{
+    int i,temp,count=0;
+    for(i=1;i<n;i++)
+   {
+     temp=arr[i];
+     for(int j=i-1;j>=0 && temp<arr[j];j--)
+     {
+        arr[j+1]=arr[j];
+        arr[j]=temp;
+        count++;
+     }
+   }
+   return count;
+}
